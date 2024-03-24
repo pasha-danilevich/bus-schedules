@@ -40,8 +40,7 @@ function fiterNearestBus(bus, timeNow, locationName) {
 
     for (let i = 0; i < list.length; i++) {
         const result = timeUntil(
-            // timeNow,
-            [10, 0],
+            timeNow,
             [list[i].hours, list[i].minutes]
         );
 

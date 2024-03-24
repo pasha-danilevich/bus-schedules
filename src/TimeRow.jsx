@@ -34,7 +34,7 @@ export default function SchedulesRow({ element }) {
     return (
         <div className="row">
             <div className={isGone(element.timeBeforeArrival)}>
-            {element.timeArrival} <span className={toggleClassName(element.timeBeforeArrival)}>{element.timeBeforeArrival}</span>
+            <div>{element.timeArrival}</div> <span className={toggleClassName(element.timeBeforeArrival)}>{element.timeBeforeArrival}</span>
             </div>
         </div>
     );
