@@ -11,6 +11,9 @@ export default function SchedulesRow({ element }) {
 
     function toggleClassName(time){
         time = convertTimeToNumber(time)
+        if (time == 0){
+            return 'gone'
+        }
         if (time <= 30){
             return 'green'
         }
@@ -21,10 +24,16 @@ export default function SchedulesRow({ element }) {
             return 'danger'
         }
     }
+    function isGone(time){
+        if (time == '00:00'){
+            return 'time gone'
+        }
+        return 'time'
+    }
 
     return (
         <div className="row">
-            <div className="time">
+            <div className={isGone(element.timeBeforeArrival)}>
             {element.timeArrival} <span className={toggleClassName(element.timeBeforeArrival)}>{element.timeBeforeArrival}</span>
             </div>
         </div>

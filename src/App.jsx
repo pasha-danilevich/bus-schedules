@@ -2,8 +2,13 @@ import { useState } from "react";
 
 import { schedules } from "./assets/schedules";
 import { settingIcon } from "./assets/gear-solid";
+import { cityIcon } from "./assets/city-solid";
+import { houseIcon } from "./assets/house-chimney-solid";
 
 import BusRow from "./BusRow";
+
+
+// разделить мобильный и пк css
 
 const locationName = {
     city: "city",
@@ -24,7 +29,7 @@ function timeUntil(now, until) {
         resultMinutes += 60;
     }
     if (resultHours < 0 || resultMinutes < 0) {
-        return false;
+        return '00:00';
     }
 
     return `${padTo2Digits(resultHours)}:${padTo2Digits(resultMinutes)}`;
@@ -34,16 +39,19 @@ function fiterNearestBus(bus, timeNow, locationName) {
     let listTime = [];
 
     for (let i = 0; i < list.length; i++) {
-        const result = timeUntil(timeNow, [list[i].hours, list[i].minutes]);
-        if (result) {
-            const hours = padTo2Digits(list[i].hours);
-            const minutes = padTo2Digits(list[i].minutes);
+        const result = timeUntil(
+            // timeNow,
+            [10, 0],
+            [list[i].hours, list[i].minutes]
+        );
 
-            listTime.push({
-                timeArrival: `${hours}:${minutes}`,
-                timeBeforeArrival: result,
-            });
-        }
+        const hours = padTo2Digits(list[i].hours);
+        const minutes = padTo2Digits(list[i].minutes);
+
+        listTime.push({
+            timeArrival: `${hours}:${minutes}`,
+            timeBeforeArrival: result,
+        });
     }
     return listTime;
 }
@@ -95,7 +103,7 @@ function App() {
             timeChanged(timeDiff);
         }
     }, 1000);
-    
+
     function changeLocation(location) {
         setListNearestBus(
             getListNearestBus(schedules, [hours, minutes], location, isAllList)
@@ -115,15 +123,15 @@ function App() {
                 <button className="setting">{settingIcon}</button>
                 <button
                     onClick={() => changeLocation(locationName.city)}
-                    className={activeButton == "city" && "active-button"}
+                    className={(activeButton == "city") ? "active-button"  : null}
                 >
-                    Город
+                    {cityIcon}
                 </button>
                 <button
                     onClick={() => changeLocation(locationName.home)}
-                    className={activeButton == "home" && "active-button"}
+                    className={(activeButton == "home") ? "active-button"  : null}
                 >
-                    Дом
+                    {houseIcon}
                 </button>
             </div>
         </>

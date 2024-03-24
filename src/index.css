@@ -18,7 +18,6 @@
 }
 #root {
   width: 100%;
-  height: 100vh;
 }
 
 a {
@@ -45,7 +44,7 @@ button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
@@ -54,9 +53,7 @@ button {
   margin: 10px;
   position: relative;
 }
-button:hover {
-  border-color: #646cff;
-}
+
 button:focus,
 button:focus-visible {
   outline: 0px auto -webkit-focus-ring-color;
@@ -66,11 +63,11 @@ button:focus-visible {
   background-color: #f9f9f9;
   position: absolute;
   z-index: -1;
-  width: 80%;
-  left: 10%;
+  width: 40%;
+  left: 30%;
   bottom: -12px;
   height: 5px;
-  border-radius: 3px 
+  border-radius: 3px;
 }
 
 .schedules {
@@ -110,25 +107,25 @@ button:focus-visible {
   font-size: 15px;
   font-weight: 400;
   margin-top: 3px;
-  
 }
 .time span:first-child {
   font-size: 15px;
   font-weight: 400;
   margin-top: 3px;
-  
 }
 
-.danger{
-  color:#cc2646;
+.danger {
+  color: #cc2646;
 }
-.warning{
-  color:#b4c45a;
+.warning {
+  color: #b4c45a;
 }
 .green {
-  color:#78e172;
+  color: #78e172;
 }
-
+.gone {
+  color: #8181814f;
+}
 
 .panel {
   display: flex;
@@ -136,7 +133,7 @@ button:focus-visible {
   width: 100%;
   position: sticky;
   bottom: 0;
-  padding: 10px 30px;
+  padding: 20px 30px;
 }
 .icon {
   fill: #f9f9f9;
@@ -155,4 +152,45 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+@media (min-width: 320px) {
+  /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+}
+@media (min-width: 480px) {
+  /* smartphones, Android phones, landscape iPhone */
+}
+@media (min-width: 600px) {
+  /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+}
+@media (min-width: 801px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+@media (min-width: 1025px) {
+  /* big landscape tablets, laptops, and desktops */
+}
+@media (min-width: 1281px) {
+  /* hi-res laptops and desktops */
+}
+
+@media (min-width: 320px) {
+}
+@media (min-width: 480px) {
+}
+@media (min-width: 600px) {
+}
+@media (min-width: 801px) {
+}
+@media (min-width: 1025px) {
+}
+@media (min-width: 1281px) {
+}
+
+@media (max-width: 335px) {
+  .schedules {
+    padding: 30px 20px ;
+  }
+  .panel {
+    padding: 20px 10px;
+}
 }
